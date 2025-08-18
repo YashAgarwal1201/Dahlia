@@ -1,0 +1,318 @@
+/* Material Design Light Theme - Based on Google's M3 specifications */
+
+/* Color Variables - Material Design 3 */
+:root {
+  --md-primary: #6750a4;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #eaddff;
+  --md-on-primary-container: #21005d;
+  
+  --md-secondary: #625b71;
+  --md-on-secondary: #ffffff;
+  --md-secondary-container: #e8def8;
+  --md-on-secondary-container: #1e192b;
+  
+  --md-tertiary: #7d5260;
+  --md-on-tertiary: #ffffff;
+  --md-tertiary-container: #ffd8e4;
+  --md-on-tertiary-container: #370b1e;
+  
+  --md-surface: #fef7ff;
+  --md-on-surface: #1c1b1f;
+  --md-surface-variant: #e7e0ec;
+  --md-on-surface-variant: #49454f;
+  
+  --md-background: #fef7ff;
+  --md-on-background: #1c1b1f;
+  
+  --md-outline: #79747e;
+  --md-outline-variant: #cab6d6;
+  
+  --md-error: #ba1a1a;
+  --md-on-error: #ffffff;
+  --md-error-container: #ffdad6;
+  --md-on-error-container: #410002;
+  
+  /* Elevation shadows */
+  --md-shadow-1: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+  --md-shadow-2: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+  --md-shadow-3: 0px 10px 20px rgba(0, 0, 0, 0.19), 0px 6px 6px rgba(0, 0, 0, 0.23);
+  
+  /* Typography Scale */
+  --md-headline-large: 32px;
+  --md-headline-medium: 28px;
+  --md-headline-small: 24px;
+  --md-title-large: 22px;
+  --md-title-medium: 16px;
+  --md-title-small: 14px;
+  --md-body-large: 16px;
+  --md-body-medium: 14px;
+  --md-body-small: 12px;
+  --md-label-large: 14px;
+  --md-label-medium: 12px;
+  --md-label-small: 11px;
+}
+
+/* Base Typography - Roboto Font Family */
+html, body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.5px !important;
+  background-color: var(--md-background) !important;
+  color: var(--md-on-background) !important;
+}
+
+/* Wikipedia Main Content Area */
+.mw-body, #content {
+  background-color: var(--md-surface) !important;
+  color: var(--md-on-surface) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--md-shadow-1) !important;
+  padding: 24px !important;
+  margin: 16px !important;
+  border: none !important;
+}
+
+/* Typography Hierarchy */
+h1, .mw-page-title-main {
+  font-size: var(--md-headline-large) !important;
+  font-weight: 400 !important;
+  line-height: 1.25 !important;
+  letter-spacing: 0px !important;
+  color: var(--md-on-surface) !important;
+  margin: 24px 0 16px 0 !important;
+}
+
+h2 {
+  font-size: var(--md-headline-medium) !important;
+  font-weight: 400 !important;
+  line-height: 1.29 !important;
+  letter-spacing: 0px !important;
+  color: var(--md-on-surface) !important;
+  margin: 20px 0 12px 0 !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
+  padding-bottom: 8px !important;
+}
+
+h3 {
+  font-size: var(--md-headline-small) !important;
+  font-weight: 400 !important;
+  line-height: 1.33 !important;
+  letter-spacing: 0px !important;
+  color: var(--md-on-surface) !important;
+  margin: 16px 0 8px 0 !important;
+}
+
+h4 {
+  font-size: var(--md-title-large) !important;
+  font-weight: 500 !important;
+  line-height: 1.27 !important;
+  letter-spacing: 0px !important;
+  color: var(--md-on-surface) !important;
+  margin: 14px 0 6px 0 !important;
+}
+
+h5, h6 {
+  font-size: var(--md-title-medium) !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.15px !important;
+  color: var(--md-on-surface) !important;
+  margin: 12px 0 4px 0 !important;
+}
+
+/* Body Text */
+p, .mw-body p {
+  font-size: var(--md-body-large) !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.5px !important;
+  color: var(--md-on-surface) !important;
+  margin: 0 0 16px 0 !important;
+}
+
+/* Links */
+a, .mw-body a {
+  color: var(--md-primary) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+a:hover, .mw-body a:hover {
+  color: var(--md-primary) !important;
+  text-decoration: underline !important;
+}
+
+a:visited, .mw-body a:visited {
+  color: var(--md-tertiary) !important;
+}
+
+/* Tables - Material Design Style */
+table, .wikitable, .infobox {
+  background-color: var(--md-surface) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--md-shadow-1) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  margin: 16px 0 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+
+table th, .wikitable th, .infobox th {
+  background-color: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  font-size: var(--md-title-small) !important;
+  font-weight: 500 !important;
+  padding: 16px !important;
+  text-align: left !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
+  letter-spacing: 0.1px !important;
+}
+
+table td, .wikitable td, .infobox td {
+  padding: 16px !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
+  font-size: var(--md-body-medium) !important;
+  color: var(--md-on-surface) !important;
+  vertical-align: top !important;
+}
+
+table tr:last-child td, .wikitable tr:last-child td, .infobox tr:last-child td {
+  border-bottom: none !important;
+}
+
+table tr:hover, .wikitable tr:hover {
+  background-color: rgba(103, 80, 164, 0.08) !important;
+}
+
+/* Infobox Specific Styling */
+.infobox {
+  float: right !important;
+  clear: right !important;
+  margin: 0 0 16px 16px !important;
+  max-width: 300px !important;
+}
+
+.infobox-title, .infobox caption {
+  background-color: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+  font-size: var(--md-title-medium) !important;
+  font-weight: 500 !important;
+  padding: 16px !important;
+  text-align: center !important;
+}
+
+/* Code and Preformatted Text */
+code, pre, .mw-code {
+  background-color: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  font-family: 'Roboto Mono', 'Courier New', monospace !important;
+  font-size: var(--md-body-small) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+}
+
+/* Navigation and Menus */
+#mw-navigation, .mw-panel {
+  background-color: var(--md-surface) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--md-shadow-1) !important;
+  margin: 8px !important;
+}
+
+.vector-menu-tabs, .vector-menu-dropdown {
+  background-color: var(--md-surface) !important;
+}
+
+.vector-menu-tabs li a, .vector-menu-dropdown a {
+  color: var(--md-on-surface) !important;
+  font-size: var(--md-label-large) !important;
+  font-weight: 500 !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.vector-menu-tabs li a:hover, .vector-menu-dropdown a:hover {
+  background-color: var(--md-secondary-container) !important;
+  color: var(--md-on-secondary-container) !important;
+}
+
+/* Search */
+#searchInput {
+  background-color: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  border: 1px solid var(--md-outline) !important;
+  border-radius: 24px !important;
+  padding: 12px 16px !important;
+  font-size: var(--md-body-medium) !important;
+}
+
+#searchInput:focus {
+  outline: 2px solid var(--md-primary) !important;
+  border-color: var(--md-primary) !important;
+}
+
+/* References and Citations */
+.reference, sup.reference {
+  color: var(--md-primary) !important;
+  font-size: var(--md-label-small) !important;
+  font-weight: 500 !important;
+}
+
+.reflist {
+  font-size: var(--md-body-small) !important;
+  color: var(--md-on-surface-variant) !important;
+  line-height: 1.4 !important;
+}
+
+/* Categories and Metadata */
+.catlinks {
+  background-color: var(--md-surface-variant) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: 12px !important;
+  padding: 16px !important;
+  margin-top: 24px !important;
+  font-size: var(--md-body-small) !important;
+}
+
+/* Images and Media */
+.thumbinner {
+  background-color: var(--md-surface) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--md-shadow-1) !important;
+  padding: 8px !important;
+}
+
+.thumbcaption {
+  font-size: var(--md-body-small) !important;
+  color: var(--md-on-surface-variant) !important;
+  line-height: 1.4 !important;
+  padding: 8px 4px 0 4px !important;
+}
+
+/* Buttons and Interactive Elements */
+.mw-ui-button, input[type="submit"] {
+  background-color: var(--md-primary) !important;
+  color: var(--md-on-primary) !important;
+  border: none !important;
+  border-radius: 20px !important;
+  padding: 10px 24px !important;
+  font-size: var(--md-label-large) !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: var(--md-shadow-1) !important;
+}
+
+.mw-ui-button:hover, input[type="submit"]:hover {
+  background-color: var(--md-primary) !important;
+  box-shadow: var(--md-shadow-2) !important;
+  transform: translateY(-1px) !important;
+}
