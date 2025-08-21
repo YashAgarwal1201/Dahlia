@@ -1,0 +1,318 @@
+/* Apple Liquid Glass Light Theme - Inspired by macOS/iOS vibrancy and glassmorphism */
+
+/* Color Variables - Apple System Colors */
+:root {
+  --apple-accent: #007aff; /* System Blue */
+  --apple-accent-secondary: #5ac8fa;
+  --apple-background: #f2f2f7; /* System Background Light */
+  --apple-surface: rgba(255, 255, 255, 0.8); /* Semi-transparent glass */
+  --apple-on-surface: #1c1c1e;
+  --apple-secondary: #e5e5ea; /* Secondary Background */
+  --apple-on-secondary: #3a3a3c;
+  --apple-outline: rgba(0, 0, 0, 0.1);
+  --apple-shadow: rgba(0, 0, 0, 0.08);
+  --apple-blur: blur(20px); /* Vibrancy effect */
+  
+  /* Typography Scale - SF Pro */
+  --apple-headline-large: 34px;
+  --apple-headline-medium: 28px;
+  --apple-headline-small: 22px;
+  --apple-title-large: 17px;
+  --apple-title-medium: 15px;
+  --apple-title-small: 13px;
+  --apple-body-large: 17px;
+  --apple-body-medium: 15px;
+  --apple-body-small: 13px;
+  --apple-label-large: 15px;
+  --apple-label-medium: 13px;
+  --apple-label-small: 11px;
+}
+
+/* Base Typography - SF Pro Font Family */
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif !important;
+  font-weight: 400 !important;
+  line-height: 1.47 !important;
+  letter-spacing: -0.022em !important;
+  background-color: var(--apple-background) !important;
+  color: var(--apple-on-surface) !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+/* Wikipedia Main Content Area */
+.mw-body, #content {
+  background-color: var(--apple-surface) !important;
+  color: var(--apple-on-surface) !important;
+  border-radius: 20px !important;
+  box-shadow: 0px 4px 12px var(--apple-shadow) !important;
+  padding: 24px !important;
+  margin: 16px !important;
+  border: none !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+/* Typography Hierarchy */
+h1, .mw-page-title-main {
+  font-size: var(--apple-headline-large) !important;
+  font-weight: 600 !important;
+  line-height: 1.18 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--apple-on-surface) !important;
+  margin: 24px 0 16px 0 !important;
+}
+
+h2 {
+  font-size: var(--apple-headline-medium) !important;
+  font-weight: 600 !important;
+  line-height: 1.21 !important;
+  letter-spacing: -0.008em !important;
+  color: var(--apple-on-surface) !important;
+  margin: 20px 0 12px 0 !important;
+  border-bottom: 1px solid var(--apple-outline) !important;
+  padding-bottom: 8px !important;
+}
+
+h3 {
+  font-size: var(--apple-headline-small) !important;
+  font-weight: 600 !important;
+  line-height: 1.27 !important;
+  letter-spacing: -0.006em !important;
+  color: var(--apple-on-surface) !important;
+  margin: 16px 0 8px 0 !important;
+}
+
+h4 {
+  font-size: var(--apple-title-large) !important;
+  font-weight: 600 !important;
+  line-height: 1.41 !important;
+  letter-spacing: 0em !important;
+  color: var(--apple-on-surface) !important;
+  margin: 14px 0 6px 0 !important;
+}
+
+h5, h6 {
+  font-size: var(--apple-title-medium) !important;
+  font-weight: 600 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0.0125em !important;
+  color: var(--apple-on-surface) !important;
+  margin: 12px 0 4px 0 !important;
+}
+
+/* Body Text */
+p, .mw-body p {
+  font-size: var(--apple-body-large) !important;
+  font-weight: 400 !important;
+  line-height: 1.47 !important;
+  letter-spacing: -0.022em !important;
+  color: var(--apple-on-surface) !important;
+  margin: 0 0 16px 0 !important;
+}
+
+/* Links */
+a, .mw-body a {
+  color: var(--apple-accent) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+a:hover, .mw-body a:hover {
+  color: var(--apple-accent-secondary) !important;
+  text-decoration: underline !important;
+}
+
+a:visited, .mw-body a:visited {
+  color: var(--apple-accent) !important;
+}
+
+/* Tables - Apple Glass Style */
+table, .wikitable, .infobox {
+  background-color: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid var(--apple-outline) !important;
+  border-radius: 20px !important;
+  box-shadow: 0px 4px 12px var(--apple-shadow) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  margin: 16px 0 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+table th, .wikitable th, .infobox th {
+  background-color: rgba(229, 229, 234, 0.8) !important;
+  color: var(--apple-on-secondary) !important;
+  font-size: var(--apple-title-small) !important;
+  font-weight: 600 !important;
+  padding: 16px !important;
+  text-align: left !important;
+  border-bottom: 1px solid var(--apple-outline) !important;
+  letter-spacing: 0em !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+table td, .wikitable td, .infobox td {
+  padding: 16px !important;
+  border-bottom: 1px solid var(--apple-outline) !important;
+  font-size: var(--apple-body-medium) !important;
+  color: var(--apple-on-surface) !important;
+  vertical-align: top !important;
+}
+
+table tr:last-child td, .wikitable tr:last-child td, .infobox tr:last-child td {
+  border-bottom: none !important;
+}
+
+table tr:hover, .wikitable tr:hover {
+  background-color: rgba(90, 200, 250, 0.1) !important;
+}
+
+/* Infobox Specific Styling */
+.infobox {
+  float: right !important;
+  clear: right !important;
+  margin: 0 0 16px 16px !important;
+  max-width: 300px !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+.infobox-title, .infobox caption {
+  background-color: rgba(229, 229, 234, 0.9) !important;
+  color: var(--apple-on-secondary) !important;
+  font-size: var(--apple-title-medium) !important;
+  font-weight: 600 !important;
+  padding: 16px !important;
+  text-align: center !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+/* Code and Preformatted Text */
+code, pre, .mw-code {
+  background-color: rgba(229, 229, 234, 0.8) !important;
+  color: var(--apple-on-secondary) !important;
+  border-radius: 12px !important;
+  padding: 8px 12px !important;
+  font-family: 'SF Mono', 'Menlo', monospace !important;
+  font-size: var(--apple-body-small) !important;
+  border: 1px solid var(--apple-outline) !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+/* Navigation and Menus */
+#mw-navigation, .mw-panel {
+  background-color: var(--apple-surface) !important;
+  border-radius: 20px !important;
+  box-shadow: 0px 4px 12px var(--apple-shadow) !important;
+  margin: 8px !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+.vector-menu-tabs, .vector-menu-dropdown {
+  background-color: var(--apple-surface) !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+.vector-menu-tabs li a, .vector-menu-dropdown a {
+  color: var(--apple-on-surface) !important;
+  font-size: var(--apple-label-large) !important;
+  font-weight: 500 !important;
+  padding: 12px 16px !important;
+  border-radius: 12px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.vector-menu-tabs li a:hover, .vector-menu-dropdown a:hover {
+  background-color: rgba(90, 200, 250, 0.2) !important;
+  color: var(--apple-accent) !important;
+}
+
+/* Search */
+#searchInput {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--apple-on-surface) !important;
+  border: 1px solid var(--apple-outline) !important;
+  border-radius: 17px !important;
+  padding: 12px 16px !important;
+  font-size: var(--apple-body-medium) !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+#searchInput:focus {
+  outline: 2px solid var(--apple-accent) !important;
+  border-color: var(--apple-accent) !important;
+}
+
+/* References and Citations */
+.reference, sup.reference {
+  color: var(--apple-accent) !important;
+  font-size: var(--apple-label-small) !important;
+  font-weight: 500 !important;
+}
+
+.reflist {
+  font-size: var(--apple-body-small) !important;
+  color: var(--apple-on-secondary) !important;
+  line-height: 1.4 !important;
+}
+
+/* Categories and Metadata */
+.catlinks {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid var(--apple-outline) !important;
+  border-radius: 20px !important;
+  padding: 16px !important;
+  margin-top: 24px !important;
+  font-size: var(--apple-body-small) !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+/* Images and Media */
+.thumbinner {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border: 1px solid var(--apple-outline) !important;
+  border-radius: 20px !important;
+  box-shadow: 0px 4px 12px var(--apple-shadow) !important;
+  padding: 8px !important;
+  -webkit-backdrop-filter: var(--apple-blur) !important;
+  backdrop-filter: var(--apple-blur) !important;
+}
+
+.thumbcaption {
+  font-size: var(--apple-body-small) !important;
+  color: var(--apple-on-secondary) !important;
+  line-height: 1.4 !important;
+  padding: 8px 4px 0 4px !important;
+}
+
+/* Buttons and Interactive Elements */
+.mw-ui-button, input[type="submit"] {
+  background-color: var(--apple-accent) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 17px !important;
+  padding: 10px 24px !important;
+  font-size: var(--apple-label-large) !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0px 2px 8px var(--apple-shadow) !important;
+}
+
+.mw-ui-button:hover, input[type="submit"]:hover {
+  background-color: var(--apple-accent-secondary) !important;
+  box-shadow: 0px 4px 12px var(--apple-shadow) !important;
+  transform: translateY(-1px) !important;
+}
