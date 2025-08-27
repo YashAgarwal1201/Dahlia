@@ -1,0 +1,1545 @@
+/* 
+ * Complete Material Design Light Theme for Wikipedia
+ * Based on Material Design 3 with compact, responsive layout
+ * Comprehensive coverage of Wikipedia CSS classes
+ * Optimized for readability and mobile responsiveness
+ */
+
+/* =============================================
+   MATERIAL DESIGN 3 COLOR TOKENS & VARIABLES
+   ============================================= */
+:root {
+  /* Primary Colors - Material Design 3 Blue Palette */
+  --md-primary: #1976d2;
+  --md-on-primary: #ffffff;
+  --md-primary-container: #d1e4ff;
+  --md-on-primary-container: #001d35;
+  
+  /* Secondary Colors */
+  --md-secondary: #565f71;
+  --md-on-secondary: #ffffff;
+  --md-secondary-container: #dae2f9;
+  --md-on-secondary-container: #131c2b;
+  
+  /* Tertiary Colors */
+  --md-tertiary: #705575;
+  --md-on-tertiary: #ffffff;
+  --md-tertiary-container: #fad8fd;
+  --md-on-tertiary-container: #28132e;
+  
+  /* Error Colors */
+  --md-error: #ba1a1a;
+  --md-on-error: #ffffff;
+  --md-error-container: #ffdad6;
+  --md-on-error-container: #410002;
+  
+  /* Surface Colors */
+  --md-surface: #fefbff;
+  --md-on-surface: #1b1b1f;
+  --md-surface-variant: #e1e2ec;
+  --md-on-surface-variant: #44474f;
+  --md-surface-container: #f3f3f3;
+  --md-surface-container-high: #ececf6;
+  --md-surface-container-highest: #e6e6f0;
+  
+  /* Background Colors */
+  --md-background: #fefbff;
+  --md-on-background: #1b1b1f;
+  
+  /* Outline Colors */
+  --md-outline: #75777f;
+  --md-outline-variant: #c5c6d0;
+  
+  /* Compact Typography Scale - Optimized for Wikipedia */
+  --md-display-large: 400 44px/52px 'Roboto', sans-serif;
+  --md-display-medium: 400 36px/44px 'Roboto', sans-serif;
+  --md-display-small: 400 28px/36px 'Roboto', sans-serif;
+  --md-headline-large: 400 24px/32px 'Roboto', sans-serif;
+  --md-headline-medium: 400 20px/28px 'Roboto', sans-serif;
+  --md-headline-small: 400 18px/26px 'Roboto', sans-serif;
+  --md-title-large: 500 18px/24px 'Roboto', sans-serif;
+  --md-title-medium: 500 15px/22px 'Roboto', sans-serif;
+  --md-title-small: 500 13px/20px 'Roboto', sans-serif;
+  --md-label-large: 500 13.5px/20px 'Roboto', sans-serif;
+  --md-label-medium: 500 12px/16px 'Roboto', sans-serif;
+  --md-label-small: 500 11px/16px 'Roboto', sans-serif;
+  --md-body-large: 400 15px/22px 'Roboto', sans-serif;
+  --md-body-medium: 400 13.5px/20px 'Roboto', sans-serif;
+  --md-body-small: 400 12px/18px 'Roboto', sans-serif;
+  
+  /* Compact Spacing System */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  
+  /* Subtle Border Radius Scale */
+  --md-corner-none: 0px;
+  --md-corner-extra-small: 4px;
+  --md-corner-small: 6px;
+  --md-corner-medium: 8px;
+  --md-corner-large: 12px;
+  --md-corner-extra-large: 18px;
+  --md-corner-full: 1000px;
+  
+  /* Subtle Elevation Shadows */
+  --md-elevation-0: none;
+  --md-elevation-1: 0px 1px 2px rgba(0, 0, 0, 0.06);
+  --md-elevation-2: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  --md-elevation-3: 0px 4px 8px rgba(0, 0, 0, 0.12);
+  --md-elevation-4: 0px 8px 16px rgba(0, 0, 0, 0.16);
+  
+  /* Motion & Transitions */
+  --md-motion-easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --md-motion-easing-emphasized: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --md-motion-duration-short1: 50ms;
+  --md-motion-duration-short2: 100ms;
+  --md-motion-duration-short3: 150ms;
+  --md-motion-duration-short4: 200ms;
+  --md-motion-duration-medium1: 250ms;
+  --md-motion-duration-medium2: 300ms;
+}
+
+/* =============================================
+   BASE STYLES & DOCUMENT STRUCTURE
+   ============================================= */
+
+/* Remove Wikipedia's default theme classes to prevent conflicts */
+html.vector-theme-dark,
+html.vector-theme-light,
+body.vector-theme-dark,
+body.vector-theme-light {
+  color-scheme: light !important;
+}
+
+/* Base document styling */
+html,
+body {
+  font: var(--md-body-large) !important;
+  background-color: var(--md-background) !important;
+  color: var(--md-on-background) !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.2px !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Global wrapper */
+#globalWrapper {
+  background-color: var(--md-background) !important;
+  min-height: 100vh !important;
+  display: block !important;
+}
+
+/* Main content containers - Constrained and responsive */
+.mw-body,
+#content,
+#bodyContent,
+.mw-content-text,
+.mw-parser-output,
+#article,
+.mediawiki {
+  background-color: var(--md-surface) !important;
+  color: var(--md-on-surface) !important;
+  border-radius: var(--md-corner-large) !important;
+  box-shadow: var(--md-elevation-1) !important;
+  padding: var(--space-lg) !important;
+  /* margin: var(--space-lg) auto !important; */
+  border: none !important;
+  transition: box-shadow var(--md-motion-duration-short4) var(--md-motion-easing-standard) !important;
+  /* max-width: 1100px !important; */
+  max-width: 100% !important;
+}
+
+.mw-page-container {
+  margin: 0px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.mw-body:hover,
+#content:hover {
+  box-shadow: var(--md-elevation-2) !important;
+}
+
+/* Constrain inner content and prevent full-width bleed */
+.mw-parser-output {
+  max-width: 100% !important;
+}
+
+/* Column layout */
+#column-content,
+#column-one {
+  background: transparent !important;
+}
+
+/* Grid layout for wide screens */
+@media (min-width: 1200px) {
+  #mw-content-text,
+  .mw-body {
+    display: grid !important;
+    /* grid-template-columns: 1fr 280px !important; */
+    gap: var(--space-lg) !important;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+    .mw-body { grid-template-columns: auto !important; }
+
+/* =============================================
+   TYPOGRAPHY HIERARCHY
+   ============================================= */
+
+/* Page title */
+.firstHeading,
+.mw-page-title-main,
+h1.firstHeading {
+  font: var(--md-headline-large) !important;
+  color: var(--md-on-surface) !important;
+  margin: 0 0 var(--space-md) 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  letter-spacing: -0.25px !important;
+}
+
+/* Headlines and headers */
+.mw-headline,
+h1, h2, h3, h4, h5, h6 {
+  color: var(--md-on-surface) !important;
+  padding: 0 !important;
+  font-weight: 400 !important;
+  letter-spacing: 0 !important;
+}
+
+h1, .mw-headline h1 {
+  font: var(--md-headline-large) !important;
+  letter-spacing: -0.25px !important;
+  margin: var(--space-lg) 0 var(--space-md) 0 !important;
+}
+
+h2, .mw-headline h2 {
+  font: var(--md-headline-medium) !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
+  padding-bottom: var(--space-xxs) !important;
+  margin: var(--space-md) 0 var(--space-sm) 0 !important;
+}
+
+h3, .mw-headline h3 {
+  font: var(--md-headline-small) !important;
+  margin: var(--space-sm) 0 var(--space-xs) 0 !important;
+}
+
+h4, .mw-headline h4 {
+  font: var(--md-title-large) !important;
+  margin: var(--space-sm) 0 var(--space-xs) 0 !important;
+}
+
+h5, .mw-headline h5 {
+  font: var(--md-title-medium) !important;
+  margin: var(--space-sm) 0 var(--space-xs) 0 !important;
+}
+
+h6, .mw-headline h6 {
+  font: var(--md-title-small) !important;
+  margin: var(--space-sm) 0 var(--space-xs) 0 !important;
+}
+
+/* Body text */
+p,
+.mw-body p,
+.mw-parser-output p,
+div,
+span {
+  font: var(--md-body-large) !important;
+  color: var(--md-on-surface) !important;
+  line-height: 1.6 !important;
+}
+
+.mw-parser-output > p {
+  margin: 0 0 var(--space-sm) 0 !important;
+}
+
+/* Lists */
+.mw-parser-output > ul,
+.mw-parser-output > ol {
+  margin: 0 0 var(--space-sm) 1.5rem !important;
+}
+
+/* =============================================
+   LINKS & NAVIGATION
+   ============================================= */
+
+/* All link types */
+a,
+.mw-body a,
+.mw-parser-output a {
+  color: var(--md-primary) !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: color var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+  border-radius: var(--md-corner-extra-small) !important;
+  padding: 2px 4px !important;
+  margin: -2px -4px !important;
+}
+
+a:hover,
+.mw-body a:hover {
+  color: var(--md-primary) !important;
+  background-color: rgba(25, 118, 210, 0.08) !important;
+  text-decoration: underline !important;
+}
+
+a:focus,
+.mw-body a:focus {
+  outline: 2px solid var(--md-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Red links (non-existent pages) */
+a.new,
+.new a {
+  color: var(--md-error) !important;
+}
+
+a.new:hover,
+.new a:hover {
+  background-color: rgba(186, 26, 26, 0.08) !important;
+}
+
+/* External links */
+a.external,
+.external {
+  color: var(--md-tertiary) !important;
+}
+
+a.external:hover {
+  background-color: rgba(112, 85, 117, 0.08) !important;
+}
+
+/* Interwiki links */
+a.extiw,
+.extiw {
+  color: var(--md-secondary) !important;
+}
+
+/* Self links */
+.selflink {
+  font-weight: 700 !important;
+  color: var(--md-on-surface) !important;
+  background-color: var(--md-surface-variant) !important;
+  border-radius: var(--md-corner-small) !important;
+  padding: 4px 8px !important;
+}
+
+/* Plain links without external indicators */
+.plainlinks a,
+.plainlinks a.external,
+.plainlinksneverexpand a,
+.nourlexpansion a {
+  background: none !important;
+  padding: 0 !important;
+}
+
+/* Edit section links */
+.mw-editsection,
+.editsection {
+  font: var(--md-label-medium) !important;
+  color: var(--md-outline) !important;
+  transition: opacity var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+}
+
+.mw-editsection:hover {
+  color: var(--md-primary) !important;
+}
+
+/* =============================================
+   NAVIGATION & INTERFACE
+   ============================================= */
+
+/* Vector skin navigation tabs - Compact and wrappable */
+.vector-menu-tabs,
+#p-cactions,
+.vector-menu-tabs-legacy {
+  background: var(--md-surface-container) !important;
+  border-radius: var(--md-corner-medium) var(--md-corner-medium) 0 0 !important;
+  box-shadow: var(--md-elevation-1) !important;
+  padding: 0 var(--space-xs) !important;
+  margin: 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: var(--space-xxs) !important;
+}
+
+.vector-menu-tabs li,
+#p-cactions li {
+  background: transparent !important;
+  margin: 0 !important;
+}
+
+.vector-menu-tabs li a,
+#p-cactions li a,
+.ca-edit a,
+.ca-talk a,
+.ca-history a,
+.ca-delete a,
+.ca-move a,
+.ca-watch a,
+.ca-unwatch a,
+.ca-viewsource a,
+.ca-addsection a,
+.ca-protect a {
+  font: var(--md-label-medium) !important;
+  color: var(--md-on-surface-variant) !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--md-corner-small) !important;
+  padding: 8px 10px !important;
+  margin: var(--space-xxs) !important;
+  transition: all var(--md-motion-duration-short3) var(--md-motion-easing-standard) !important;
+  text-transform: none !important;
+}
+
+.vector-menu-tabs li a:hover,
+#p-cactions li a:hover {
+  background-color: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+  box-shadow: var(--md-elevation-1) !important;
+}
+
+.vector-menu-tabs .selected a,
+#p-cactions .selected a {
+  background-color: var(--md-primary) !important;
+  color: var(--md-on-primary) !important;
+  box-shadow: var(--md-elevation-2) !important;
+}
+
+/* Personal tools */
+#p-personal,
+.vector-user-links {
+  background: var(--md-surface-container-high) !important;
+  border-radius: var(--md-corner-medium) !important;
+  padding: var(--space-xs) !important;
+  box-shadow: var(--md-elevation-1) !important;
+}
+
+#p-personal ul,
+.vector-user-links ul {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+#p-personal li a,
+.vector-user-links li a,
+#pt-userpage a,
+#pt-mytalk a,
+#pt-preferences a,
+#pt-watchlist a,
+#pt-mycontris a,
+#pt-logout a,
+#pt-login a {
+  font: var(--md-label-medium) !important;
+  color: var(--md-on-surface-variant) !important;
+  padding: var(--space-xs) var(--space-sm) !important;
+  border-radius: var(--md-corner-small) !important;
+  transition: all var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+}
+
+#p-personal li a:hover,
+.vector-user-links li a:hover {
+  background-color: var(--md-secondary-container) !important;
+  color: var(--md-on-secondary-container) !important;
+}
+
+/* Navigation sidebar - Constrained width and sticky on wide screens */
+#p-navigation,
+#p-tb,
+.mw-panel {
+  background: var(--md-surface-container) !important;
+  border-radius: var(--md-corner-medium) !important;
+  padding: var(--space-md) !important;
+  margin: var(--space-xs) !important;
+  box-shadow: var(--md-elevation-1) !important;
+  width: 260px !important;
+  max-width: 90vw !important;
+}
+
+@media (min-width: 1200px) {
+  .mw-panel,
+  #p-navigation,
+  #p-tb {
+    position: sticky !important;
+    top: 84px !important;
+    height: max-content !important;
+  }
+}
+
+#p-navigation h3,
+#p-tb h3,
+.vector-menu-heading {
+  font: var(--md-title-medium) !important;
+  color: var(--md-on-surface) !important;
+  margin: 0 0 var(--space-sm) 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+#p-navigation ul,
+#p-tb ul,
+.vector-menu-content ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+#p-navigation li a,
+#p-tb li a,
+.vector-menu-content li a,
+#n-mainpage a,
+#n-recentchanges a,
+#n-randompage a,
+#n-help a,
+#n-contact a,
+#n-sitesupport a,
+#n-portal a,
+#n-currentevents a,
+#t-whatlinkshere a,
+#t-recentchangeslinked a,
+#t-upload a,
+#t-specialpages a,
+#t-permalink a {
+  font: var(--md-body-medium) !important;
+  color: var(--md-on-surface-variant) !important;
+  display: block !important;
+  padding: var(--space-xs) var(--space-sm) !important;
+  border-radius: var(--md-corner-small) !important;
+  margin: 2px 0 !important;
+  transition: all var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+}
+
+#p-navigation li a:hover,
+#p-tb li a:hover,
+.vector-menu-content li a:hover {
+  background-color: var(--md-secondary-container) !important;
+  color: var(--md-on-secondary-container) !important;
+}
+
+/* =============================================
+   TABLES & DATA PRESENTATION
+   ============================================= */
+
+/* Wikipedia tables - Compact and responsive */
+table,
+table.wikitable,
+.wikitable,
+table.sortable,
+.sortable,
+table.prettytable,
+.infobox,
+.navbox,
+.toccolours {
+  background: var(--md-surface-container) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-medium) !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  box-shadow: var(--md-elevation-1) !important;
+  margin: var(--space-md) 0 !important;
+  overflow: hidden !important;
+  font: var(--md-body-medium) !important;
+  color: var(--md-on-surface) !important;
+  width: 100% !important;
+  table-layout: auto !important;
+}
+
+/* Table headers - Compact padding */
+table th,
+.wikitable th,
+.sortable th,
+.infobox th,
+.navbox th,
+th {
+  background: var(--md-surface-container-highest) !important;
+  color: var(--md-on-surface) !important;
+  font: var(--md-label-large) !important;
+  padding: 10px var(--space-sm) !important;
+  text-align: left !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
+  position: relative !important;
+}
+
+/* Sortable table headers */
+.sortable th {
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: background-color var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+  white-space: nowrap !important;
+}
+
+.sortable th:hover {
+  background: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+}
+
+/* Table cells - Compact with overflow handling */
+table td,
+.wikitable td,
+.sortable td,
+.infobox td,
+.navbox td,
+td {
+  padding: 8px var(--space-sm) !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
+  vertical-align: top !important;
+  transition: background-color var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Table row hover states */
+table tr:hover,
+.wikitable tr:hover,
+.sortable tr:hover {
+  background-color: rgba(25, 118, 210, 0.04) !important;
+}
+
+/* Remove bottom border from last rows */
+table tr:last-child td,
+.wikitable tr:last-child td,
+.sortable tr:last-child td,
+.infobox tr:last-child td {
+  border-bottom: none !important;
+}
+
+/* =============================================
+   INFOBOXES & SPECIALIZED TABLES
+   ============================================= */
+
+/* Infobox styling - Compact and mobile-friendly */
+.infobox {
+  float: right !important;
+  clear: right !important;
+  margin: 0 0 var(--space-md) var(--space-md) !important;
+  width: 320px !important;
+  max-width: 100% !important;
+  background: var(--md-surface-container-high) !important;
+}
+
+@media (max-width: 1024px) {
+  .infobox {
+    float: none !important;
+    margin: var(--space-md) 0 !important;
+    width: 100% !important;
+  }
+}
+
+.infobox-title,
+.infobox caption,
+.infobox th.infobox-above {
+  background: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+  font: var(--md-title-medium) !important;
+  text-align: center !important;
+  padding: var(--space-md) !important;
+  border-radius: var(--md-corner-medium) var(--md-corner-medium) 0 0 !important;
+}
+
+.infobox th {
+  background: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  font: var(--md-label-medium) !important;
+  width: 120px !important;
+  text-align: right !important;
+  vertical-align: top !important;
+}
+
+.infobox td {
+  background: var(--md-surface-container-high) !important;
+  color: var(--md-on-surface) !important;
+}
+
+/* Navigation boxes */
+.navbox {
+  background: var(--md-surface-container) !important;
+  margin: var(--space-md) 0 !important;
+  width: 100% !important;
+}
+
+.navbox-title,
+.navbox-abovebelow {
+  background: var(--md-secondary-container) !important;
+  color: var(--md-on-secondary-container) !important;
+  font: var(--md-title-small) !important;
+  text-align: center !important;
+}
+
+.navbox-group {
+  background: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  font: var(--md-label-large) !important;
+  text-align: center !important;
+  width: 150px !important;
+}
+
+.navbox-list {
+  background: var(--md-surface-container) !important;
+}
+
+/* Sidebar elements */
+.sidebar {
+  background: var(--md-surface-container) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-medium) !important;
+  box-shadow: var(--md-elevation-1) !important;
+  margin: var(--space-md) !important;
+  padding: var(--space-md) !important;
+}
+
+/* =============================================
+   TABLE OF CONTENTS
+   ============================================= */
+
+#toc,
+.toc {
+  background: var(--md-surface-container) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-medium) !important;
+  box-shadow: var(--md-elevation-1) !important;
+  padding: 0 !important;
+  margin: var(--space-md) 0 !important;
+  display: inline-block !important;
+  font: var(--md-body-medium) !important;
+  overflow: hidden !important;
+  max-width: 320px !important;
+}
+
+#toctitle,
+.toctitle {
+  background: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+  font: var(--md-title-medium) !important;
+  text-align: center !important;
+  padding: var(--space-sm) var(--space-md) !important;
+  margin: 0 !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
+}
+
+#toc ul,
+.toc ul {
+  list-style: none !important;
+  padding: var(--space-sm) var(--space-md) !important;
+  margin: 0 !important;
+  max-height: 50vh !important;
+  overflow: auto !important;
+}
+
+#toc li,
+.toc li {
+  margin: 4px 0 !important;
+  padding: 0 !important;
+}
+
+.toclevel-1,
+.toclevel-2,
+.toclevel-3,
+.toclevel-4,
+.toclevel-5,
+.toclevel-6 {
+  margin-left: calc(var(--toc-level, 0) * var(--space-md)) !important;
+}
+
+.toclevel-1 { --toc-level: 0; }
+.toclevel-2 { --toc-level: 1; }
+.toclevel-3 { --toc-level: 2; }
+.toclevel-4 { --toc-level: 3; }
+.toclevel-5 { --toc-level: 4; }
+.toclevel-6 { --toc-level: 5; }
+
+.tocnumber {
+  color: var(--md-outline) !important;
+  font: var(--md-label-medium) !important;
+  margin-right: var(--space-xs) !important;
+}
+
+.toctext {
+  color: var(--md-on-surface) !important;
+}
+
+.toctext a {
+  color: var(--md-primary) !important;
+  text-decoration: none !important;
+  padding: 4px var(--space-xs) !important;
+  border-radius: var(--md-corner-small) !important;
+  transition: background-color var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+}
+
+.toctext a:hover {
+  background-color: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+}
+
+/* TOC toggle */
+.toctoggle {
+  font: var(--md-label-small) !important;
+  color: var(--md-outline) !important;
+}
+
+/* Hide automatic numbering when nonumtoc class is present */
+.nonumtoc .tocnumber {
+  display: none !important;
+}
+
+/* =============================================
+   MESSAGE BOXES
+   ============================================= */
+
+/* Base message box styling - Compact */
+.ambox,
+.tmbox,
+.imbox,
+.ombox,
+.cmbox,
+.fmbox {
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-medium) !important;
+  box-shadow: var(--md-elevation-1) !important;
+  margin: var(--space-sm) 0 !important;
+  padding: 0 !important;
+  background: var(--md-surface-container) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: flex-start !important;
+}
+
+/* Message box content */
+.mbox-text,
+.ambox-text,
+.tmbox-text,
+.imbox-text,
+.ombox-text,
+.cmbox-text {
+  flex: 1 !important;
+  padding: var(--space-sm) var(--space-md) !important;
+  font: var(--md-body-medium) !important;
+  color: var(--md-on-surface) !important;
+  line-height: 1.6 !important;
+}
+
+/* Message box images */
+.mbox-image,
+.ambox-image,
+.tmbox-image,
+.imbox-image,
+.ombox-image,
+.cmbox-image {
+  padding: var(--space-md) 0 var(--space-md) var(--space-md) !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Empty cells for spacing */
+.mbox-empty-cell {
+  width: var(--space-xs) !important;
+}
+
+/* Notice level message boxes */
+.ambox-notice,
+.tmbox-notice,
+.imbox-notice,
+.ombox-notice,
+.cmbox-notice {
+  background: var(--md-secondary-container) !important;
+  border-color: var(--md-secondary) !important;
+}
+
+.ambox-notice .mbox-text,
+.tmbox-notice .mbox-text,
+.imbox-notice .mbox-text,
+.ombox-notice .mbox-text,
+.cmbox-notice .mbox-text {
+  color: var(--md-on-secondary-container) !important;
+}
+
+/* Warning level message boxes */
+.ambox-speedy,
+.ambox-delete,
+.tmbox-speedy,
+.tmbox-delete,
+.imbox-speedy,
+.imbox-delete,
+.ombox-speedy,
+.ombox-delete,
+.cmbox-speedy,
+.cmbox-delete {
+  background: var(--md-error-container) !important;
+  border-color: var(--md-error) !important;
+}
+
+.ambox-speedy .mbox-text,
+.ambox-delete .mbox-text,
+.tmbox-speedy .mbox-text,
+.tmbox-delete .mbox-text {
+  color: var(--md-on-error-container) !important;
+}
+
+/* Content level message boxes */
+.ambox-content,
+.tmbox-content,
+.imbox-content,
+.ombox-content,
+.cmbox-content {
+  background: var(--md-tertiary-container) !important;
+  border-color: var(--md-tertiary) !important;
+}
+
+.ambox-content .mbox-text,
+.tmbox-content .mbox-text {
+  color: var(--md-on-tertiary-container) !important;
+}
+
+/* Style level message boxes */
+.ambox-style,
+.tmbox-style,
+.imbox-style,
+.ombox-style,
+.cmbox-style {
+  background: var(--md-tertiary-container) !important;
+  border-color: var(--md-tertiary) !important;
+}
+
+/* Move level message boxes */
+.ambox-move,
+.tmbox-move,
+.imbox-move,
+.ombox-move,
+.cmbox-move {
+  background: var(--md-secondary-container) !important;
+  border-color: var(--md-secondary) !important;
+}
+
+/* Protection level message boxes */
+.ambox-protection,
+.tmbox-protection,
+.imbox-protection,
+.ombox-protection,
+.cmbox-protection {
+  background: var(--md-surface-variant) !important;
+  border-color: var(--md-outline) !important;
+}
+
+/* Hatnotes */
+.hatnote,
+.dablink,
+.rellink {
+  background: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-small) !important;
+  padding: 8px var(--space-sm) !important;
+  margin: var(--space-xs) 0 var(--space-sm) 0 !important;
+  font: var(--md-body-small) !important;
+  font-style: italic !important;
+}
+
+/* =============================================
+   IMAGES & MEDIA
+   ============================================= */
+
+/* Thumbnails - Compact padding */
+.thumb,
+.thumbinner {
+  background: var(--md-surface-container) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-medium) !important;
+  box-shadow: var(--md-elevation-1) !important;
+  padding: var(--space-xs) !important;
+  margin: var(--space-sm) !important;
+  overflow: hidden !important;
+}
+
+.thumbimage {
+  border-radius: var(--md-corner-small) !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.thumbcaption {
+  font: var(--md-body-small) !important;
+  color: var(--md-on-surface-variant) !important;
+  padding: var(--space-xs) 4px 0 4px !important;
+  line-height: 1.4 !important;
+}
+
+/* Thumbnail borders */
+.thumbborder {
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-small) !important;
+}
+
+/* Magnify icon */
+.magnify {
+  float: right !important;
+  margin-left: var(--space-xs) !important;
+  opacity: 0.6 !important;
+  transition: opacity var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+}
+
+.magnify:hover {
+  opacity: 1 !important;
+}
+
+/* Image alignment */
+.tleft,
+.floatleft {
+  float: left !important;
+  clear: left !important;
+  margin: 0 var(--space-md) var(--space-md) 0 !important;
+}
+
+.tright,
+.floatright {
+  float: right !important;
+  clear: right !important;
+  margin: 0 0 var(--space-md) var(--space-md) !important;
+}
+
+.tnone,
+.floatnone {
+  float: none !important;
+  clear: both !important;
+  margin: var(--space-md) auto !important;
+  display: block !important;
+}
+
+/* Center alignment */
+.center {
+  text-align: center !important;
+  margin: 0 auto !important;
+}
+
+/* =============================================
+   REFERENCES & CITATIONS
+   ============================================= */
+
+/* Reference markers */
+sup.reference,
+.reference {
+  font: var(--md-label-small) !important;
+  color: var(--md-primary) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  padding: 2px 4px !important;
+  border-radius: var(--md-corner-extra-small) !important;
+  transition: background-color var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+}
+
+sup.reference:hover,
+.reference:hover {
+  background-color: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+}
+
+/* Reference lists */
+.references,
+.reflist {
+  font: var(--md-body-small) !important;
+  color: var(--md-on-surface-variant) !important;
+  line-height: 1.5 !important;
+  padding: var(--space-md) !important;
+  background: var(--md-surface-variant) !important;
+  border-radius: var(--md-corner-medium) !important;
+  margin: var(--space-xl) 0 !important;
+}
+
+.references ol,
+.reflist ol {
+  padding-left: var(--space-xl) !important;
+  margin: 0 !important;
+}
+
+.references li,
+.reflist li {
+  margin: var(--space-xs) 0 !important;
+  padding-left: var(--space-xs) !important;
+}
+
+/* Citation formatting */
+.citation {
+  color: var(--md-on-surface-variant) !important;
+  font: var(--md-body-small) !important;
+}
+
+/* Reference access dates */
+.reference-accessdate {
+  color: var(--md-outline) !important;
+}
+
+/* Column layouts for references */
+.references-column-count,
+.references-column-count-2,
+.references-column-count-3 {
+  column-gap: var(--space-lg) !important;
+}
+
+.references-column-width {
+  column-width: 30em !important;
+}
+
+/* =============================================
+   FORMS & INPUTS
+   ============================================= */
+
+/* Search input */
+#searchInput,
+#searchform input {
+  background: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  border: 1px solid var(--md-outline) !important;
+  border-radius: 20px !important;
+  padding: 8px 12px !important;
+  font: var(--md-body-medium) !important;
+  transition: all var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+  outline: none !important;
+  height: auto !important;
+}
+
+#searchInput:focus,
+#searchform input:focus {
+  border-color: var(--md-primary) !important;
+  background: var(--md-surface) !important;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+/* Buttons - Compact */
+.mw-ui-button,
+input[type="submit"],
+button,
+.searchButton {
+  background: var(--md-primary) !important;
+  color: var(--md-on-primary) !important;
+  border: none !important;
+  border-radius: 18px !important;
+  padding: 8px 14px !important;
+  font: var(--md-label-medium) !important;
+  cursor: pointer !important;
+  transition: all var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+  box-shadow: var(--md-elevation-1) !important;
+  outline: none !important;
+  text-transform: none !important;
+}
+
+.mw-ui-button:hover,
+input[type="submit"]:hover,
+button:hover,
+.searchButton:hover {
+  background: var(--md-primary) !important;
+  box-shadow: var(--md-elevation-2) !important;
+  transform: translateY(-1px) !important;
+}
+
+.mw-ui-button:active,
+input[type="submit"]:active,
+button:active {
+  transform: translateY(0) !important;
+  box-shadow: var(--md-elevation-1) !important;
+}
+
+.mw-ui-button:focus,
+input[type="submit"]:focus,
+button:focus {
+  box-shadow: var(--md-elevation-2), 0 0 0 2px rgba(25, 118, 210, 0.2) !important;
+}
+
+/* =============================================
+   SPECIAL ELEMENTS
+   ============================================= */
+
+/* Code blocks */
+code,
+pre,
+.mw-code,
+kbd,
+samp {
+  background: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  font-family: 'Roboto Mono', 'Courier New', monospace !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-small) !important;
+  padding: var(--space-xs) var(--space-sm) !important;
+  margin: 4px 0 !important;
+  overflow-x: auto !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+pre {
+  display: block !important;
+}
+
+/* Categories */
+.catlinks,
+#catlinks {
+  background: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: var(--md-corner-medium) !important;
+  padding: var(--space-md) !important;
+  margin: var(--space-xl) 0 0 0 !important;
+  font: var(--md-body-small) !important;
+}
+
+.catlinks a,
+#catlinks a {
+  color: var(--md-secondary) !important;
+  padding: 2px 6px !important;
+  border-radius: var(--md-corner-small) !important;
+  transition: background-color var(--md-motion-duration-short2) var(--md-motion-easing-standard) !important;
+}
+
+.catlinks a:hover,
+#catlinks a:hover {
+  background: var(--md-secondary-container) !important;
+  color: var(--md-on-secondary-container) !important;
+}
+
+/* Redirects */
+.redirectText,
+.redirect-in-category {
+  font: var(--md-body-medium) !important;
+  color: var(--md-outline) !important;
+  font-style: italic !important;
+}
+
+.allpagesredirect {
+  color: var(--md-outline) !important;
+  font-style: italic !important;
+}
+
+/* Stub notices */
+#stub,
+.stub {
+  background: var(--md-tertiary-container) !important;
+  color: var(--md-on-tertiary-container) !important;
+  border: 1px solid var(--md-tertiary) !important;
+  border-radius: var(--md-corner-medium) !important;
+  padding: var(--space-sm) var(--space-md) !important;
+  margin: var(--space-md) 0 !important;
+  font: var(--md-body-small) !important;
+}
+
+/* Coordinate display */
+#coordinates {
+  position: absolute !important;
+  top: 80px !important;
+  right: var(--space-xl) !important;
+  background: var(--md-surface-container) !important;
+  color: var(--md-on-surface) !important;
+  padding: var(--space-xs) var(--space-sm) !important;
+  border-radius: var(--md-corner-medium) !important;
+  box-shadow: var(--md-elevation-1) !important;
+  font: var(--md-label-small) !important;
+  z-index: 100 !important;
+}
+
+/* Special page elements */
+.special {
+  color: var(--md-outline) !important;
+  font-style: italic !important;
+}
+
+/* User message notifications */
+.usermessage {
+  background: var(--md-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+  border: 1px solid var(--md-primary) !important;
+  border-radius: var(--md-corner-medium) !important;
+  padding: var(--space-md) !important;
+  margin: var(--space-md) 0 !important;
+}
+
+/* Site notice */
+#siteNotice {
+  background: var(--md-surface-variant) !important;
+  border-radius: var(--md-corner-medium) !important;
+  padding: var(--space-sm) !important;
+  margin: var(--space-sm) 0 !important;
+}
+
+/* Page protection notices */
+.mw-warning-with-logexcerpt,
+.mw-cascadeprotectedwarning {
+  background: var(--md-error-container) !important;
+  color: var(--md-on-error-container) !important;
+  border: 1px solid var(--md-error) !important;
+  border-radius: var(--md-corner-medium) !important;
+  padding: var(--space-md) !important;
+  margin: var(--space-md) 0 !important;
+}
+
+/* Utilities */
+.nowrap {
+  white-space: nowrap !important;
+}
+
+.nowraplinks a {
+  white-space: nowrap !important;
+}
+
+.wrap {
+  white-space: normal !important;
+}
+
+.wraplinks a {
+  white-space: normal !important;
+}
+
+.center {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Hide elements */
+.noprint {
+  /* Will be hidden in print media query */
+}
+
+.nomobile {
+  /* For mobile-specific hiding if needed */
+}
+
+/* =============================================
+   ACCESSIBILITY & USER PREFERENCES
+   ============================================= */
+
+/* Admin-only content */
+.sysop-show {
+  /* Styles will be applied by MediaWiki:Group-sysop.css */
+}
+
+/* Collapsible elements */
+.collapsible {
+  /* JavaScript will handle functionality */
+}
+
+.collapsed {
+  /* Initially collapsed state */
+}
+
+.autocollapse {
+  /* Auto-collapse behavior */
+}
+
+/* Sortable table indicators */
+.sortarrow {
+  color: var(--md-outline) !important;
+  font-size: 80% !important;
+}
+
+.unsortable {
+  /* Prevent sorting on specific columns */
+}
+
+/* =============================================
+   PRINT STYLES
+   ============================================= */
+
+@media print {
+  /* Hide interface elements when printing */
+  .noprint,
+  .editsection,
+  .mw-editsection,
+  .catlinks,
+  #catlinks,
+  .magnify,
+  .navbox,
+  .ambox,
+  .tmbox,
+  .metadata,
+  #toc .toctoggle,
+  .plainlinks .external,
+  .mw-jump-link,
+  #p-personal,
+  #p-navigation,
+  #p-tb,
+  .vector-menu-tabs,
+  #coordinates {
+    display: none !important;
+  }
+  
+  /* Optimize colors for print */
+  body,
+  .mw-body,
+  #content {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  /* Ensure links are visible in print */
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+  
+  /* Optimize tables for print */
+  table,
+  .wikitable,
+  .infobox {
+    border: 1px solid #999 !important;
+    box-shadow: none !important;
+  }
+  
+  /* Remove floats for better print layout */
+  .infobox,
+  .thumb {
+    float: none !important;
+    margin: var(--space-md) 0 !important;
+    page-break-inside: avoid !important;
+  }
+}
+
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
+
+@media (max-width: 768px) {
+  /* Mobile optimizations */
+  .mw-body,
+  #content {
+    margin: var(--space-xs) !important;
+    padding: var(--space-md) !important;
+  }
+  
+  .infobox {
+    float: none !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: var(--space-md) 0 !important;
+  }
+  
+  .thumb,
+  .thumbinner {
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+  
+  /* Stack navigation elements */
+  .vector-menu-tabs,
+  #p-cactions {
+    flex-direction: column !important;
+  }
+  
+  /* Larger touch targets */
+  .vector-menu-tabs li a,
+  #p-cactions li a {
+    padding: var(--space-md) var(--space-lg) !important;
+    min-height: 44px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Adjust table layout for mobile */
+  table,
+  .wikitable,
+  .sortable {
+    font-size: 12px !important;
+  }
+  
+  table th,
+  table td {
+    padding: 6px var(--space-xs) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens */
+  .mw-body,
+  #content {
+    padding: var(--space-sm) !important;
+    margin: var(--space-xxs) !important;
+  }
+  
+  /* Compress typography slightly */
+  .firstHeading,
+  .mw-page-title-main {
+    font-size: 20px !important;
+    line-height: 28px !important;
+  }
+  
+  h2 {
+    font-size: 18px !important;
+    line-height: 24px !important;
+  }
+}
+
+/* =============================================
+   ACCESSIBILITY ENHANCEMENTS
+   ============================================= */
+
+/* Focus indicators */
+*:focus {
+  outline: 2px solid var(--md-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Skip links for screen readers */
+.mw-jump-link {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.mw-jump-link:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  overflow: visible !important;
+  background: var(--md-primary) !important;
+  color: var(--md-on-primary) !important;
+  padding: var(--space-xs) var(--space-sm) !important;
+  border-radius: var(--md-corner-small) !important;
+  text-decoration: none !important;
+  z-index: 1000 !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --md-outline: #000000;
+    --md-outline-variant: #333333;
+  }
+  
+  a,
+  .mw-body a {
+    text-decoration: underline !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Screen reader support */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

@@ -1,44 +1,51 @@
 /* Material Design Dark Theme - Based on Google's M3 specifications */
 
-/* Color Variables - Material Design 3 Dark */
+/* 1. Color Variables - Material Design 3 Dark Palette */
 :root {
+  /* Primary Colors */
   --md-primary: #d0bcff;
   --md-on-primary: #381e72;
   --md-primary-container: #4f378b;
   --md-on-primary-container: #eaddff;
-  
+
+  /* Secondary Colors */
   --md-secondary: #ccc2dc;
   --md-on-secondary: #332d41;
   --md-secondary-container: #4a4458;
   --md-on-secondary-container: #e8def8;
-  
+
+  /* Tertiary Colors */
   --md-tertiary: #efb8c8;
   --md-on-tertiary: #492532;
   --md-tertiary-container: #633b48;
   --md-on-tertiary-container: #ffd8e4;
-  
-  --md-surface: #141218;
-  --md-on-surface: #e6e0e9;
+
+  /* Surface Colors */
+  --md-surface: #1c1b1f;
+  --md-on-surface: #e6e1e5;
   --md-surface-variant: #49454f;
-  --md-on-surface-variant: #cab6d6;
+  --md-on-surface-variant: #cac4d0;
   
-  --md-background: #111015;
-  --md-on-background: #e6e0e9;
-  
-  --md-outline: #938f94;
+  /* Background Colors */
+  --md-background: #1c1b1f;
+  --md-on-background: #e6e1e5;
+
+  /* Outline Colors */
+  --md-outline: #938f99;
   --md-outline-variant: #49454f;
-  
-  --md-error: #ffb4ab;
-  --md-on-error: #690005;
-  --md-error-container: #93000a;
-  --md-on-error-container: #ffdad6;
-  
-  /* Elevation shadows for dark theme */
-  --md-shadow-1: 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.4);
-  --md-shadow-2: 0px 3px 6px rgba(0, 0, 0, 0.4), 0px 3px 6px rgba(0, 0, 0, 0.5);
-  --md-shadow-3: 0px 10px 20px rgba(0, 0, 0, 0.5), 0px 6px 6px rgba(0, 0, 0, 0.6);
-  
-  /* Typography Scale */
+
+  /* Error Colors */
+  --md-error: #f2b8b5;
+  --md-on-error: #601410;
+  --md-error-container: #8c1d18;
+  --md-on-error-container: #f9dedc;
+
+  /* Elevation shadows (stronger for dark backgrounds) */
+  --md-shadow-1: 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.5);
+  --md-shadow-2: 0px 3px 6px rgba(0, 0, 0, 0.4), 0px 3px 6px rgba(0, 0, 0, 0.6);
+  --md-shadow-3: 0px 10px 20px rgba(0, 0, 0, 0.5), 0px 6px 6px rgba(0, 0, 0, 0.7);
+
+  /* Typography Scale (Unchanged from light theme) */
   --md-headline-large: 32px;
   --md-headline-medium: 28px;
   --md-headline-small: 24px;
@@ -52,6 +59,9 @@
   --md-label-medium: 12px;
   --md-label-small: 11px;
 }
+
+
+/* 2. Base Styles & Selectors (Mirrored from light theme) */
 
 /* Base Typography - Roboto Font Family */
 html, body {
@@ -68,10 +78,35 @@ html, body {
   background-color: var(--md-surface) !important;
   color: var(--md-on-surface) !important;
   border-radius: 16px !important;
-  box-shadow: var(--md-shadow-1) !important;
+  /* box-shadow: var(--md-shadow-1) !important; */
   padding: 24px !important;
   margin: 16px !important;
   border: none !important;
+}
+
+@media screen and (min-width: 1120px) {
+  .mw-body {
+    grid-template-columns: auto !important;
+  }
+}
+
+.mw-header {
+  max-width: 100% !important;
+}
+
+.mw-page-container {
+  /* background-color: transparent !important; */
+  margin: 0px !important;
+  max-width: 100% !important;
+}
+
+figure[typeof~='mw:File/Thumb'] {
+    background-color: var(--md-surface) !important;
+    border: 1px solid var(--md-outline-variant) !important;
+    border-radius: 12px !important;
+    box-shadow: var(--md-shadow-1) !important;
+    padding: 8px !important;
+    margin: 16px 0 !important;
 }
 
 /* Typography Hierarchy */
@@ -151,7 +186,7 @@ a:visited, .mw-body a:visited {
 
 /* Tables - Material Design Style */
 table, .wikitable, .infobox {
-  background-color: var(--md-surface-variant) !important;
+  background-color: var(--md-surface) !important;
   border: 1px solid var(--md-outline-variant) !important;
   border-radius: 12px !important;
   box-shadow: var(--md-shadow-1) !important;
@@ -163,23 +198,22 @@ table, .wikitable, .infobox {
 }
 
 table th, .wikitable th, .infobox th {
-  background-color: var(--md-outline-variant) !important;
-  color: var(--md-on-surface) !important;
+  background-color: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
   font-size: var(--md-title-small) !important;
   font-weight: 500 !important;
   padding: 16px !important;
   text-align: left !important;
-  border-bottom: 1px solid var(--md-outline) !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
   letter-spacing: 0.1px !important;
 }
 
 table td, .wikitable td, .infobox td {
   padding: 16px !important;
-  border-bottom: 1px solid var(--md-outline) !important;
+  border-bottom: 1px solid var(--md-outline-variant) !important;
   font-size: var(--md-body-medium) !important;
   color: var(--md-on-surface) !important;
   vertical-align: top !important;
-  background-color: var(--md-surface-variant) !important;
 }
 
 table tr:last-child td, .wikitable tr:last-child td, .infobox tr:last-child td {
@@ -187,7 +221,7 @@ table tr:last-child td, .wikitable tr:last-child td, .infobox tr:last-child td {
 }
 
 table tr:hover, .wikitable tr:hover {
-  background-color: rgba(208, 188, 255, 0.12) !important;
+  background-color: rgba(204, 194, 220, 0.08) !important; /* --md-secondary with alpha */
 }
 
 /* Infobox Specific Styling */
@@ -209,13 +243,13 @@ table tr:hover, .wikitable tr:hover {
 
 /* Code and Preformatted Text */
 code, pre, .mw-code {
-  background-color: var(--md-outline-variant) !important;
-  color: var(--md-on-surface) !important;
+  background-color: var(--md-surface-variant) !important;
+  color: var(--md-on-surface-variant) !important;
   border-radius: 8px !important;
   padding: 8px 12px !important;
   font-family: 'Roboto Mono', 'Courier New', monospace !important;
   font-size: var(--md-body-small) !important;
-  border: 1px solid var(--md-outline) !important;
+  border: 1px solid var(--md-outline-variant) !important;
 }
 
 /* Navigation and Menus */
@@ -244,12 +278,54 @@ code, pre, .mw-code {
   color: var(--md-on-secondary-container) !important;
 }
 
+.vector-pinned-container {
+    background-color: var(--md-secondary-container) !important;
+    border: 1px solid var(--md-outline-variant) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    margin-bottom: 16px !important;
+}
+
+.vector-page-toolbar-container {
+    box-shadow: none !important;
+    padding: 12px 0px !important;
+}
+
+.vector-menu-tabs .mw-list-item.selected a {
+  background-color: var(--md-primary) !important;
+  color: var(--md-on-primary) !important; /* Correct on-primary for dark theme */
+  border-bottom: 0px !important;
+}
+
 /* Search */
-#searchInput {
-  background-color: var(--md-surface-variant) !important;
-  color: var(--md-on-surface-variant) !important;
-  border: 1px solid var(--md-outline) !important;
+#searchform {
+  background-color: var(--md-surface) !important;
   border-radius: 24px !important;
+  box-shadow: var(--md-shadow-1) !important;
+  padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  max-width: 400px !important;
+  margin: 0 auto !important;
+}
+
+#searchform button {
+  background-color: var(--md-primary) !important;
+  color: var(--md-on-primary) !important;
+  border: none !important;
+  border-radius: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+#searchInput, input[type="search"] {
+  background-color: transparent !important;
+  color: var(--md-on-surface-variant) !important;
+  border: 0px !important;
+  outline: none !important;
   padding: 12px 16px !important;
   font-size: var(--md-body-medium) !important;
 }
@@ -272,6 +348,15 @@ code, pre, .mw-code {
   line-height: 1.4 !important;
 }
 
+.vector-toc .vector-toc-list-item button {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background-color: var(--md-on-surface-variant) !important;
+  color: var(--md-background) !important;
+  margin-top: 6px !important;
+}
+
 /* Categories and Metadata */
 .catlinks {
   background-color: var(--md-surface-variant) !important;
@@ -284,7 +369,7 @@ code, pre, .mw-code {
 
 /* Images and Media */
 .thumbinner {
-  background-color: var(--md-surface-variant) !important;
+  background-color: var(--md-surface) !important;
   border: 1px solid var(--md-outline-variant) !important;
   border-radius: 12px !important;
   box-shadow: var(--md-shadow-1) !important;
@@ -316,4 +401,10 @@ code, pre, .mw-code {
   background-color: var(--md-primary) !important;
   box-shadow: var(--md-shadow-2) !important;
   transform: translateY(-1px) !important;
+}
+
+.navbox {
+    background-color: transparent !important;
+    padding: 0px !important;
+    border: 0px !important;
 }

@@ -68,10 +68,33 @@ html, body {
   background-color: var(--md-surface) !important;
   color: var(--md-on-surface) !important;
   border-radius: 16px !important;
-  box-shadow: var(--md-shadow-1) !important;
+  /* box-shadow: var(--md-shadow-1) !important; */
   padding: 24px !important;
   margin: 16px !important;
   border: none !important;
+}
+
+@media screen and (min-width: 1120px) {
+    .mw-body {
+      grid-template-columns: auto !important;
+    }}
+.mw-header {
+  max-width: 100% !important;
+}
+.mw-page-container {
+  /* background-color: transparent !important; */
+  margin: 0px !important;
+  max-width: 100% !important;
+}
+
+
+figure[typeof~='mw:File/Thumb'] {
+  background-color: var(--md-surface) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--md-shadow-1) !important;
+  padding: 8px !important;
+  margin: 16px 0 !important;
 }
 
 /* Typography Hierarchy */
@@ -189,6 +212,11 @@ table tr:hover, .wikitable tr:hover {
   background-color: rgba(103, 80, 164, 0.08) !important;
 }
 
+/* .mw-heading2 {
+  border-bottom-color: var(--md-on-primary-container) !important;
+  color: var(--md-on-primary-container) !important;
+} */
+
 /* Infobox Specific Styling */
 .infobox {
   float: right !important;
@@ -243,12 +271,58 @@ code, pre, .mw-code {
   color: var(--md-on-secondary-container) !important;
 }
 
+.vector-pinned-container {
+  background-color: var(--md-secondary-container) !important;
+  border: 1px solid var(--md-outline-variant) !important;
+  border-radius: 12px !important;
+  /* box-shadow: var(--md-shadow-1) !important; */
+  padding: 16px !important;
+  margin-bottom: 16px !important;
+}
+
+.vector-page-toolbar-container {
+  box-shadow: none !important;
+  padding: 12px 0px !important;
+}
+
+.vector-menu-tabs .mw-list-item.selected a {
+  background-color: var(--md-primary) !important;
+  color: var(--md-primary-container) !important;
+  border-bottom: 0px !important;
+}
+
 /* Search */
-#searchInput {
-  background-color: var(--md-surface-variant) !important;
-  color: var(--md-on-surface-variant) !important;
-  border: 1px solid var(--md-outline) !important;
+#searchform {
+  background-color: var(--md-surface) !important;
   border-radius: 24px !important;
+  box-shadow: var(--md-shadow-1) !important;
+  padding: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  max-width: 400px !important;
+  margin: 0 auto !important;
+}
+
+#searchform button {
+  content: "🔍";
+  background-color: var(--md-primary) !important;
+  color: var(--md-on-primary) !important;
+  border: none !important;
+  border-radius: 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+#searchInput, input[type="search"] {
+  /* background-color: var(--md-surface-variant) !important; */
+  background-color: transparent !important;
+  color: var(--md-on-surface-variant) !important;
+  /* border: 1px solid var(--md-outline) !important; */
+  border: 0px !important;
+  outline: none !important;
+  /* border-radius: 24px !important; */
   padding: 12px 16px !important;
   font-size: var(--md-body-medium) !important;
 }
@@ -269,6 +343,22 @@ code, pre, .mw-code {
   font-size: var(--md-body-small) !important;
   color: var(--md-on-surface-variant) !important;
   line-height: 1.4 !important;
+}
+
+/* .vector-toc .vector-toc-list-item {
+  position: static !important;
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  align-items: center !important;
+} */
+
+.vector-toc .vector-toc-list-item button {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background-color: var(--md-on-surface-variant) !important;
+  color: var(--md-background) !important;
+  margin-top: 6px !important;
 }
 
 /* Categories and Metadata */
@@ -315,4 +405,11 @@ code, pre, .mw-code {
   background-color: var(--md-primary) !important;
   box-shadow: var(--md-shadow-2) !important;
   transform: translateY(-1px) !important;
+}
+
+
+.navbox {
+background-color: transparent !important;
+padding: 0px !important;
+border: 0px !important;
 }
