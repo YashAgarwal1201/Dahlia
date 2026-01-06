@@ -9,7 +9,9 @@ export default defineConfig({
     version: '0.1.0',
     description: 'Style Wikipedia with selectable themes.',
     action: { default_popup: 'popup.html' },
-    permissions: ['storage', 'activeTab', 'scripting'],
+    permissions: ['tabs','storage', 'activeTab', 'scripting'],
+
+
     host_permissions: ['*://*.wikipedia.org/*'],
    
     web_accessible_resources: [

@@ -6,6 +6,7 @@ import appleLiquidGlassDarkCss from '~/assets/styles/apple-liquid-glass-dark.css
 import winUiDarkCss from '~/assets/styles/win-ui-dark.css?inline';
 
 const CSS_MAP = {
+  default: "",
   'material-light': lightThemeCss,
   'material-dark': darkThemeCss,
   'apple-liquid-glass': appleLiquidGlassCss,
@@ -19,6 +20,12 @@ type ThemeKey = keyof typeof CSS_MAP;
 function applyTheme(theme: ThemeKey) {
   console.log('[content-script] Applying theme:', theme);
   removeExisting();
+  
+  // If theme is 'default', just remove styles and return
+  if (theme === 'default') {
+    return; // No styles applied = original Wikipedia appearance
+  }
+
   const style = document.createElement('style');
   style.id = 'wiki-style-ext';
   style.textContent = CSS_MAP[theme];
@@ -36,7 +43,9 @@ export default defineContentScript({
   async main() {
     console.log('🚀 Content script LOADED', window.location.href);
     const { theme } = await browser.storage.sync.get('theme');
-    applyTheme((theme as ThemeKey) || 'material-light');
+    // applyTheme((theme as ThemeKey) || 'material-light');
+    applyTheme((theme as ThemeKey) || "default"); // Default to 'default' theme
+    
     browser.storage.onChanged.addListener((changes, area) => {
       if (area === 'sync' && changes.theme) {
         applyTheme(changes.theme.newValue as ThemeKey);
